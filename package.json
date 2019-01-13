@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.2.3",
+    "@craco/craco": "^3.2.3",
     "@sentry/browser": "^4.4.1",
     "@types/jest": "^23.3.9",
     "@types/lodash": "^4.14.118",
@@ -18,6 +20,8 @@
     "history": "^4.7.2",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.11",
+    "mobx": "^5.8.0",
+    "mobx-react": "^5.4.3",
     "number-abbreviate": "^2.0.0",
     "pouchdb": "^7.0.0",
     "prop-types": "^15.6.1",
@@ -40,6 +44,7 @@
   },
   "devDependencies": {
     "eslint-plugin-react": "^7.7.0",
+    "mobx-react-devtools": "^6.0.3",
     "react-test-renderer": "^16.6.1",
     "surge": "^0.20.1"
   },
@@ -49,10 +54,9 @@
   },
   "scripts": {
     "pretty": "prettier --write 'src/**/*.js'",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test --env=jsdom",
     "deploy": "npm run build && cd build && mv index.html 200.html && surge ./ app.moneytracker.cc && surge ./ demo.moneytracker.cc"
   },
   "browserslist": [
