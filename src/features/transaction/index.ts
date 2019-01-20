@@ -1,5 +1,4 @@
-import { observable } from 'mobx';
-import { SymbolT } from 'features/symbol';
+import { MoneyCode } from 'features/money';
 
 enum TransactionKind {
   Expense,
@@ -15,7 +14,7 @@ interface RegularTransactionT {
   categoryId: string;
   accountId: string;
   amount: number;
-  symbol: SymbolT;
+  code: MoneyCode;
 }
 
 interface TransferTransactionT {
@@ -25,10 +24,10 @@ interface TransferTransactionT {
   note?: string;
   accountId: string;
   amount: number;
-  symbol: SymbolT;
+  code: MoneyCode;
   linkedAccountId: string;
   linkedAmount: number;
-  linkedSymbol: SymbolT;
+  linkedCode: MoneyCode;
 }
 
 type TransactionT = RegularTransactionT | TransferTransactionT;

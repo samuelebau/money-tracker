@@ -1,0 +1,17 @@
+@import '~variables.scss';
+@import '~mixins.scss';
+
+#root {
+  .ui.segments.u-container {
+    max-width: $screen-lg-min;
+    margin: 1em auto;
+  }
+
+  @include mobile {
+    .ui.segments.u-container {
+      margin: 0;
+      border: none;
+      box-shadow: none;
+    }
+  }
+}
