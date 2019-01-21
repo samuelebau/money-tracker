@@ -1,17 +1,21 @@
 import React from 'react';
 import * as Sentry from '@sentry/browser';
 
-class ErrorBoundary extends React.Component {
-  constructor(props) {
+interface State {
+  error?: Error;
+}
+
+export class ErrorBoundary extends React.Component<{}, State> {
+  constructor(props: {}) {
     super(props);
-    this.state = { error: null };
+    this.state = { error: undefined };
   }
 
-  componentDidCatch(error, errorInfo) {
+  componentDidCatch(error: Error, errorInfo: Record<string, any>) {
     this.setState({ error });
-    console.log('sentry error', error);
-    Sentry.withScope(scope => {
-      Object.keys(errorInfo).forEach(key => {
+
+    Sentry.withScope((scope) => {
+      Object.keys(errorInfo).forEach((key) => {
         scope.setExtra(key, errorInfo[key]);
       });
       Sentry.captureException(error);
@@ -32,5 +36,3 @@ class ErrorBoundary extends React.Component {
     }
   }
 }
-
-export default ErrorBoundary;

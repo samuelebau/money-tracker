@@ -1,0 +1,14 @@
+#moneytracker-root {
+  .Wizard {
+    .attached.steps {
+      border-radius: 0;
+      border-top: none;
+      border-color: #d4d4d5;
+
+      & .step:first-child,
+      & .step:last-child {
+        border-radius: 0;
+      }
+    }
+  }
+}

@@ -1,9 +1,7 @@
 export enum StorageEntity {
-  Settings = 'settings',
-  Transactions = 'transactions',
-  Categories = 'categories',
   Accounts = 'accounts',
-  AccountGroups = 'account_groups'
+  Settings = 'settings',
+  Transactions = 'transactions'
 }
 
 export interface StorageCredentials {

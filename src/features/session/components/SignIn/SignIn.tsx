@@ -5,7 +5,7 @@ import { RouteComponentProps } from '@reach/router';
 
 export const SignIn: React.FunctionComponent<RouteComponentProps> = () => {
   return (
-    <Segment.Group className="u-container" size="large" raised>
+    <Segment.Group className="u-container" raised>
       <Segment>
         <Header icon="user circle" content="Sign in to MoneyTracker" />
       </Segment>

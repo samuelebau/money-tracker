@@ -14,11 +14,11 @@ interface Props {
 
 const AppShellObserver = observer(({ store }: Props) => {
   const { session, settings } = store;
-  if (!session && !settings.isSetupComplete) {
-    navigate('/setup');
-  } else if (!settings.isSetupComplete) {
-    navigate('/setup/wizard');
-  }
+  // if (!session && !settings.isSetupComplete) {
+  //   navigate('/setup');
+  // } else if (!settings.isSetupComplete) {
+  //   navigate('/setup/wizard');
+  // }
 
   return (
     <Router>

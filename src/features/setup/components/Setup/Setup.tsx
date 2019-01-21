@@ -1,11 +1,8 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { RouteComponentProps } from '@reach/router';
-import { Header, Segment } from 'semantic-ui-react';
+import { RouteComponentProps, redirectTo } from '@reach/router';
 import { StoreContext } from 'RootStore';
-import { SessionPrompt, SignIn } from 'features/session';
 import { AppShellStore } from 'features/app-shell';
-import { Wizard } from 'features/setup';
 
 interface Props {
   store: AppShellStore;
@@ -14,7 +11,10 @@ interface Props {
 @observer
 class SetupObserver extends React.Component<Props> {
   render() {
-    const { session } = this.props.store;
+    const { settings } = this.props.store;
+    if (settings.isSetupComplete) {
+      redirectTo('/');
+    }
 
     return this.props.children;
   }
